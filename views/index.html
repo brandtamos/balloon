@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<style>
+#container {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: yellow;
+}
+#theBalloon {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-color: red;
+}
+</style>
+<body>
+
+<p><button onclick="myMove()">Click Me</button></p> 
+
+<div id ="container">
+  <div id ="theBalloon"onclick="myMove()"></div>
+</div>
+
+<script>
+let intervalId = null;
+function myMove() {
+  clearInterval(intervalId);
+  const elem = document.getElementById("theBalloon");   
+  let pos = 0;
+  
+  intervalId = setInterval(frame, 100);
+  function frame() {
+    if (pos == 350) {
+      clearInterval(intervalId);
+    } else {
+      pos++; 
+      elem.style.top = pos + "px"; 
+      elem.style.left = pos + "px"; 
+    }
+  }
+}
+</script>
+
+</body>
+</html>
