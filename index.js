@@ -1,8 +1,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const path = require('path');
 
 const app = express();
 app.use(express.static("public"));
+app.use('/img', express.static(path.join(__dirname, 'img')));
+app.use('/scripts', express.static(path.join(__dirname, 'scripts')));
 app.use(bodyParser.json());
 
 
